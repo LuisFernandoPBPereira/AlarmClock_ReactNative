@@ -1,9 +1,9 @@
 //================Importações dos componentes======================
 import { useState } from 'react'
-import { Alert, Button} from 'react-native' 
+import { Alert, Button, StyleSheet, View} from 'react-native' 
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import { connect } from 'react-redux'
-import { addAlarm } from '../actions/alarms'
+import  addAlarm  from '../Components/actions/alarms.js'
 import ReactNativeAN from 'react-native-alarm-notification'
 //=================================================================
 
@@ -72,12 +72,11 @@ function TimerPicker(props) {
         onPress={() => {showCalendar()}}/>
 
         <DateTimePicker 
-          isVisible={isCalendarVisible}
+          isVisible={isDatePickerVisible}
+          mode="datetime"
           onConfirm={handleCalendar}
           onCancel={hideCalendar}
-          mode="datetime">
-          
-        </DateTimePicker>
+        />
 
     </View>
   )
@@ -103,4 +102,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default connect(mapStateProps, mapDispatchToProps)(TimePicker)
+export default connect(mapStateProps, mapDispatchToProps)(TimerPicker)

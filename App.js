@@ -1,10 +1,10 @@
 //================Importações dos componentes======================
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import ListAlarm from "./src/Components/ListAlarm"
-import TimerPicker from "./src/Components/TimerPicker"
+import ListAlarm from "./src/Components/ListAlarm.js"
+import TimerPicker from "./src/Components/TimerPicker.js"
 
 import { Provider } from "react-redux"
-import configureStore from "./store"
+import configureStore from "./src/Components/store/index.js"
 //=================================================================
 
 export default function App() {
@@ -14,11 +14,13 @@ export default function App() {
   return (
     <Provider store={store}>
       <View style={styles.container}>
-      <Text style={styles.heading}>Despertador</Text>
-      <SafeAreaView style={styles.ListAlarm}>
-        <ListAlarm/>
-      </SafeAreaView>
-      <TimerPicker/>
+        <Text style={styles.heading}>Despertador</Text>
+        {/* <SafeAreaView style={styles.listAlarm}> */}
+          <ListAlarm/>
+        {/* </SafeAreaView> */}
+        <View style={styles.timePicker}>
+          <TimerPicker/>
+        </View>
       </View>
     </Provider>
   );

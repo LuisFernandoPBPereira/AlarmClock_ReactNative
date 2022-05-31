@@ -1,11 +1,11 @@
 //================Importações dos componentes======================
-import { StyleSheet, Flatlist, Text, View, Button } from 'react-native';
+import { StyleSheet, View, Button, FlatList } from 'react-native';
 import { ListItem } from "react-native-elements"
 import { connect } from "react-redux"
-import { removeAlarm } from "'../actions/alarms'"
+import  removeAlarm  from "../Components/actions/alarms"
 //=================================================================
 
-function ListAlarm() {
+function ListAlarm(props) {
   const keyExtrator = ((item, index) => index.toString())
   const renderItem = (({item}) => {
     const [date] = item.alarmNotifData.fire_date.split(" ")
@@ -31,7 +31,7 @@ function ListAlarm() {
   })
   return (
     <View style={styles.container}>
-      <Flatlist
+      <FlatList
         keyExtrator={keyExtrator}
         data={props.alarms}
         renderItem={renderItem}
