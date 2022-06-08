@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Alert, Button, StyleSheet, View} from 'react-native' 
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import { connect } from 'react-redux'
-import  addAlarm  from '../Components/actions/alarms.js'
+import  {ADD_ALARM}  from '../Components/actions/alarms.js'
 import ReactNativeAN from 'react-native-alarm-notification'
 //=================================================================
 
@@ -64,21 +64,19 @@ function TimerPicker(props) {
   }
 
   return (
-    <View style={styles.container}>
-      
-      <Button 
-        title="+ Alarmes"
-        color="#6495ED"
-        onPress={() => {showCalendar()}}/>
-
-        <DateTimePicker 
-          isVisible={isDatePickerVisible}
-          mode="datetime"
-          onConfirm={handleCalendar}
-          onCancel={hideCalendar}
-        />
-
-    </View>
+    <>
+            <Button
+            title='+ Alarmes'
+            color='#6495ED'
+            onPress={() => showCalendar()}
+            />
+            <DateTimePicker
+            isVisible={isDatePickerVisible}
+            mode="datetime"
+            onConfirm={handleCalendar}
+            onCancel={hideCalendar}
+            />
+        </>
   )
 }
 const mapStateProps = ((state) => {
@@ -88,18 +86,18 @@ const mapStateProps = ((state) => {
 const mapDispatchToProps = ((dispatch) => {
   return{
     add: alarmNotifObj => {
-      dispatch(addAlarm(alarmNotifObj))
+      dispatch(ADD_ALARM(alarmNotifObj))
     }
   }
 })
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// })
 
 export default connect(mapStateProps, mapDispatchToProps)(TimerPicker)

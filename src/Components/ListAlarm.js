@@ -2,7 +2,7 @@
 import { StyleSheet, View, Button, FlatList } from 'react-native';
 import { ListItem } from "react-native-elements"
 import { connect } from "react-redux"
-import  removeAlarm  from "../Components/actions/alarms"
+import  {DELETE_ALARM}  from "../Components/actions/alarms"
 //=================================================================
 
 function ListAlarm(props) {
@@ -11,7 +11,7 @@ function ListAlarm(props) {
     const [date] = item.alarmNotifData.fire_date.split(" ")
 
     return(
-      <ListItem style={{paddingTop: 10}}>
+      <ListItem style={{padding: 50}}>
         <ListItem.Content>
 
           <ListItem.Title>{item.time.toString()}</ListItem.Title>
@@ -49,7 +49,7 @@ const mapStateProps = ((state) => {
 const mapDispatchToProps = ((dispatch) => {
   return{
     delete: value => {
-      dispatch(removeAlarm(value))
+      dispatch(DELETE_ALARM(value))
     }
   }
 })
@@ -57,9 +57,10 @@ const mapDispatchToProps = ((dispatch) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#4C669F',
     alignItems: 'center',
     justifyContent: 'center',
+    padding:50,
   },
 });
 

@@ -15,9 +15,9 @@ export default function App() {
     <Provider store={store}>
       <View style={styles.container}>
         <Text style={styles.heading}>Despertador</Text>
-        {/* <SafeAreaView style={styles.listAlarm}> */}
+        <SafeAreaView style={styles.listAlarm}>
           <ListAlarm/>
-        {/* </SafeAreaView> */}
+        </SafeAreaView>
         <View style={styles.timePicker}>
           <TimerPicker/>
         </View>
